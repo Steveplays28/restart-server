@@ -7,16 +7,19 @@ import me.shedaniel.autoconfig.annotation.Config;
 @Config(name = RestartServer.MOD_ID)
 public class RestartServerConfig implements ConfigData {
 	// Restart script
-	public String restartScriptLinux = "start-server.sh";
-	public String restartScriptMacOS = "start-server.sh";
-	public String restartScriptWindows = "start-server.bat";
+	public boolean runRestartScript = true;
+	public String restartScriptPath = "start.bat";
+	public boolean openInTerminal = true;
+	public String terminalStartCommand = "cmd /c start start.bat";
 
-	// Messages
+	// Restart message
+	public boolean sendRestartMessage = true;
+	public boolean sendRestartMessageInActionbar = false;
 	public String restartMessage = "Restarting server... (eta: ~2m)";
+	public String restartFailedMessage = "Server restart failed.";
 
 	// Automatic restarts
 	public long restartInterval;
-	public String[] restartTimes;
 	public boolean restartIfNoPlayersHaveBeenOnline = false;
 	public long noPlayersWaitTime = 7200;
 }
